@@ -1,0 +1,13 @@
+.form {
+  gap: 2rem;
+
+  &,
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    gap: 0.5rem;
+  }
+}
