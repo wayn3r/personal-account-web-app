@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <AppLayout title="Home" description="This is the home page">
       <Link href="/">Home Page</Link>
-      <Link href="/transaction/new">Add Transaction</Link>
+      <Link href="/transaction">Transactions</Link>
     </AppLayout>
   )
 }
