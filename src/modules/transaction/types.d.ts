@@ -4,6 +4,9 @@ export interface AddTransactionFormValues {
   description: string
   amount: number
 }
+export interface Transaction extends AddTransactionFormValues {
+  id: number
+}
 export interface AddTransactionFormProps {
   onAddTransaction: (values: AddTransactionFormValues) => void
 }
