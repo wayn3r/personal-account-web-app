@@ -1,0 +1,17 @@
+@import 'styles/base/variables';
+.wrapper {
+  background-color: map-get($map: $colors, $key: background);
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+
+  .content {
+    // border: 1px solid map-get($map: $colors, $key: black);
+    padding: 2rem;
+    border-radius: 15px;
+    aspect-ratio: 9 / 16;
+    height: 90vh;
+    background-color: map-get($map: $colors, $key: white);
+    box-shadow: 0 0 1.5rem 2rem rgba(map-get($map: $colors, $key: black), 0.01);
+  }
+}
