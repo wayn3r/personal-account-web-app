@@ -17,7 +17,7 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
     const formData = new FormData(form)
 
     const values: AddTransactionFormValues = {
-      type: formData.get('type') as string,
+      type: formData.get('type') as AddTransactionFormValues['type'],
       name: formData.get('name') as string,
       description: formData.get('description') as string,
       amount: parseFloat(formData.get('amount') as string),
@@ -35,8 +35,8 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
       <label>
         Type
         <select name="type">
-          <option value="income">Income</option>
-          <option value="expense">Expense</option>
+          <option value="credit">Credit</option>
+          <option value="debit">Debit</option>
         </select>
         {errors.type && <span>{errors.type}</span>}
       </label>

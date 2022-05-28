@@ -1,0 +1,14 @@
+.transaction {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 1rem;
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+}
+
+.credit {
+  composes: credit from './general-balance.module.scss';
+}
+.debit {
+  composes: debit from './general-balance.module.scss';
+}

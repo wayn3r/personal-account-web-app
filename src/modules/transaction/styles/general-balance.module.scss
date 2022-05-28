@@ -1,0 +1,16 @@
+@import 'styles/base/variables';
+
+$green: map-get($colors, dark-green);
+$red: map-get($colors, dark-red);
+
+.credit {
+  color: $green;
+}
+
+.debit {
+  color: $red;
+}
+.credit,
+.debit {
+  font-weight: 600;
+}
