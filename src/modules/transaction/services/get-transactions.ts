@@ -13,3 +13,10 @@ export async function getTransactions(): Promise<Transaction[]> {
 
   return currentTransactions.filter(isValidTransaction)
 }
+
+export async function getServerTransactions(): Promise<Transaction[]> {
+  const response = await fetch('http://localhost:3000/api/v1/transaction')
+  const transactions = await response.json()
+
+  return transactions
+}

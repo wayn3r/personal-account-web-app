@@ -7,9 +7,10 @@ const number = new Intl.NumberFormat('en-US', {
 })
 type Props = GeneralBalanceProps
 export const GeneralBalance = ({ transactions }: Props) => {
-  const balance = transactions
-    .map(t => t.amount * (t.type === 'debit' ? -1 : 1))
-    .reduce((a, b) => a + b, 0)
+  const balance = transactions.reduce(
+    (carry, current) => carry + current.balance,
+    0
+  )
   const className = balance > 0 ? styles.credit : styles.debit
   return <span className={className}>{number.format(balance)}</span>
 }

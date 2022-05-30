@@ -1,11 +1,13 @@
 export interface AddTransactionFormValues {
-  type: 'credit' | 'debit'
   name: string
   description: string
-  amount: number
+  credit: number
+  debit: number
 }
 export interface Transaction extends AddTransactionFormValues {
   id: number
+  balance: number
+  date: Date
 }
 export interface AddTransactionFormProps {
   onAddTransaction: (values: AddTransactionFormValues) => void

@@ -7,14 +7,13 @@ const number = new Intl.NumberFormat('en-US', {
 })
 type Props = TransactionListItemProps
 export const TransactionListItem = ({ transaction }: Props) => {
-  const className = transaction.type === 'credit' ? styles.credit : styles.debit
+  const className = transaction.balance > 0 ? styles.credit : styles.debit
 
   return (
     <li className={styles.transaction}>
       <h4>{transaction.name}</h4>
-      <p>{transaction.type}</p>
       <p>{transaction.description}</p>
-      <span className={className}>{number.format(transaction.amount)}</span>
+      <span className={className}>{number.format(transaction.balance)}</span>
     </li>
   )
 }
