@@ -8,8 +8,12 @@ import * as transactionService from 'modules/transaction/services/add-transactio
 function NewTransactionPage() {
   const router = useRouter()
   const handleAddNewTransaction = async (values: AddTransactionFormValues) => {
-    await transactionService.addTransaction(values)
-    router.push('/transaction')
+    try {
+      const transaction = await transactionService.addTransaction(values)
+      router.push('/transaction')
+    } catch (error: any) {
+      console.log(error.errors)
+    }
   }
   return (
     <AppLayout title="New Transaction" description="Create a new transaction">

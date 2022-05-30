@@ -24,8 +24,8 @@ export interface TransactionListItemProps {
   transaction: Transaction
 }
 export interface TransactionErrors {
-  type: string
   name: string
   description: string
-  amount: string
+  credit: string
+  debit: string
 }

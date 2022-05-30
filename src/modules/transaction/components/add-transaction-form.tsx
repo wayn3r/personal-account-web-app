@@ -17,10 +17,10 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
     const formData = new FormData(form)
 
     const values: AddTransactionFormValues = {
-      type: formData.get('type') as AddTransactionFormValues['type'],
       name: formData.get('name') as string,
       description: formData.get('description') as string,
-      amount: parseFloat(formData.get('amount') as string),
+      credit: parseFloat(formData.get('credit') as string),
+      debit: parseFloat(formData.get('debit') as string),
     }
 
     const errors = validateTransaction(values)
@@ -33,14 +33,6 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label>
-        Type
-        <select name="type">
-          <option value="credit">Credit</option>
-          <option value="debit">Debit</option>
-        </select>
-        {errors.type && <span>{errors.type}</span>}
-      </label>
-      <label>
         Transaction Name
         <input type="text" name="name" />
         {errors.name && <span>{errors.name}</span>}
@@ -51,9 +43,14 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
         {errors.description && <span>{errors.description}</span>}
       </label>
       <label>
-        Amount
-        <input type="number" name="amount" />
-        {errors.amount && <span>{errors.amount}</span>}
+        Credit
+        <input type="number" name="credit" min={0} />
+        {errors.credit && <span>{errors.credit}</span>}
+      </label>
+      <label>
+        Debit
+        <input type="number" name="debit" min={0} />
+        {errors.debit && <span>{errors.debit}</span>}
       </label>
       <button>Add</button>
     </form>
