@@ -11,6 +11,9 @@ export async function addTransaction(
       ...values,
       date: new Date(),
     }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
   }
   const response = await fetch(`${API_HOST}/transaction/add`, requestOptions)
   if (!response.ok) {
