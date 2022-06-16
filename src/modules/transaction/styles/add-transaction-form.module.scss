@@ -12,4 +12,11 @@
   label {
     gap: 0.5rem;
   }
+
+  input.credit {
+    color: $dark-green-color;
+  }
+  input.debit {
+    color: $dark-red-color;
+  }
 }

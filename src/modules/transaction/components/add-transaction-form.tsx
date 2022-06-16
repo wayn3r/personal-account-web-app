@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import {
   AddTransactionFormProps,
   AddTransactionFormValues,
@@ -10,48 +10,55 @@ import styles from '../styles/add-transaction-form.module.scss'
 import { Input } from 'modules/shared/components/form/input'
 import { TextAreaInput } from 'modules/shared/components/form/textarea'
 import { Button } from 'modules/shared/components/button/button'
+import { useForm } from 'modules/shared/hooks/useForm'
 
 type Props = AddTransactionFormProps
 export function AddTransactionForm({ onAddTransaction }: Props) {
   const [errors, setErrors] = useState<Partial<TransactionErrors>>({})
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { form, handleForm } = useForm<AddTransactionFormValues>({
+    initialValues: {
+      credit: 0,
+      debit: 0,
+      description: '',
+      name: '',
+    },
+  })
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const form = e.currentTarget
-    const formData = new FormData(form)
-
     const values: AddTransactionFormValues = {
-      name: formData.get('name') as string,
-      description: formData.get('description') as string,
-      credit: parseFloat(formData.get('credit') as string),
-      debit: parseFloat(formData.get('debit') as string),
+      name: form.name.value,
+      description: form.description.value,
+      credit: parseFloat(form.credit.value.toString()),
+      debit: parseFloat(form.debit.value.toString()),
     }
-
-    const errors = validateTransaction(values)
-    if (Object.keys(errors).length > 0) {
-      setErrors(errors)
-      return
-    }
-    onAddTransaction(values)
+    console.log(values)
+    // const errors = validateTransaction(values)
+    // if (Object.keys(errors).length > 0) {
+    //   setErrors(errors)
+    //   return
+    // }
+    // onAddTransaction(values)
   }
+
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} {...handleForm} onSubmit={handleSubmit}>
       <label>
         Type
         <Input type="text" name="type" />
       </label>
       <label>
         Transaction name
-        <Input type="text" name="name" />
+        <Input type="text" {...form.name} />
         {errors.name && <span>{errors.name}</span>}
       </label>
       <label>
         Description
-        <TextAreaInput name="description" rows={3} />
+        <TextAreaInput {...form.description} rows={3} />
         {errors.description && <span>{errors.description}</span>}
       </label>
       <label>
         Amount
-        <Input type="number" name="credit" />
+        <Input type="number" name="amount" />
         {errors.credit && <span>{errors.credit}</span>}
       </label>
       <Button>Add</Button>
