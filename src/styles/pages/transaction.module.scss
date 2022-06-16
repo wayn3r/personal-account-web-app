@@ -1,9 +1,8 @@
-@import '../base/variables';
-$gray: map-get($colors, light-gray);
+@import '/src/styles/base/variables';
 .error {
   text-align: center;
   padding: 3rem 0;
   font-size: 2rem;
   font-weight: 600;
-  color: $gray;
+  color: $light-gray-color;
 }

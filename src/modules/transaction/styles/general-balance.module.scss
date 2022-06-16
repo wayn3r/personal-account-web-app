@@ -1,14 +1,11 @@
-@import 'styles/base/variables';
-
-$green: map-get($colors, dark-green);
-$red: map-get($colors, dark-red);
+@import '/src/styles/base/variables';
 
 .credit {
-  color: $green;
+  color: $dark-green-color;
 }
 
 .debit {
-  color: $red;
+  color: $dark-red-color;
 }
 .credit,
 .debit {

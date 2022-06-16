@@ -1,5 +1,4 @@
-@import 'styles/base/variables';
-$gray: map-get($colors, light-gray);
+@import '/src/styles/base/variables';
 .transactions {
   display: grid;
   gap: 1.5rem;
@@ -12,5 +11,5 @@ $gray: map-get($colors, light-gray);
   display: grid;
   place-content: center;
   font-size: 2rem;
-  color: $gray;
+  color: $light-gray-color;
 }
