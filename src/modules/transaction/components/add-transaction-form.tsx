@@ -8,6 +8,8 @@ import { validateTransaction } from '../services/validate-transaction'
 
 import styles from '../styles/add-transaction-form.module.scss'
 import { Input } from 'modules/shared/components/form/input'
+import { TextAreaInput } from 'modules/shared/components/form/textarea'
+import { Button } from 'modules/shared/components/button/button'
 
 type Props = AddTransactionFormProps
 export function AddTransactionForm({ onAddTransaction }: Props) {
@@ -34,26 +36,25 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label>
-        Transaction Name
+        Type
+        <Input type="text" name="type" />
+      </label>
+      <label>
+        Transaction name
         <Input type="text" name="name" />
         {errors.name && <span>{errors.name}</span>}
       </label>
       <label>
         Description
-        <textarea name="description"></textarea>
+        <TextAreaInput name="description" rows={3} />
         {errors.description && <span>{errors.description}</span>}
       </label>
       <label>
-        Credit
-        <Input type="number" name="credit" min={0} />
+        Amount
+        <Input type="number" name="credit" />
         {errors.credit && <span>{errors.credit}</span>}
       </label>
-      <label>
-        Debit
-        <Input type="number" name="debit" min={0} />
-        {errors.debit && <span>{errors.debit}</span>}
-      </label>
-      <button>Add</button>
+      <Button>Add</Button>
     </form>
   )
 }

@@ -8,3 +8,6 @@ $colors: (
   green: #84ebbe,
   dark-green: #2cdd90,
 );
+
+$black-color: map-get($colors, black);
+$white-color: map-get($colors, white);
