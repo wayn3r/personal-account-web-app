@@ -1,0 +1,19 @@
+@import '/src/styles/base/variables';
+
+.button {
+  padding: 1rem;
+  text-transform: uppercase;
+  background-color: $black-color;
+  color: $white-color;
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 100ms linear;
+  &:hover {
+    background-color: lighten($black-color, 10%);
+  }
+  &:active {
+    background-color: darken($black-color, 10%);
+  }
+}
