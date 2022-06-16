@@ -1,0 +1,4 @@
+.textarea {
+  composes: input from './input.module.scss';
+  resize: none;
+}
