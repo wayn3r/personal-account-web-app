@@ -16,6 +16,9 @@ export async function getTransactions(): Promise<Transaction[]> {
 
 export async function getServerTransactions(): Promise<Transaction[]> {
   const response = await fetch(`${API_HOST}/transaction`)
+  if (!response.ok) {
+    throw await response.json()
+  }
   const transactions = await response.json()
 
   return transactions

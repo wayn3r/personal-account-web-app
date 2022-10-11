@@ -1,4 +1,4 @@
-import { ServerValidationError } from '../models/ServerValidationError'
+import { ServerValidationError } from '../models/server-validation-error'
 import { AddTransactionFormValues, Transaction } from '../types'
 
 const API_HOST = process.env.NEXT_PUBLIC_API_URL

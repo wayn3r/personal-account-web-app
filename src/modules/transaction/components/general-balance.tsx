@@ -1,5 +1,5 @@
 import { GeneralBalanceProps } from '../types'
-import styles from '../styles/general-balance.module.scss'
+import styles from './general-balance.module.scss'
 
 const number = new Intl.NumberFormat('en-US', {
   style: 'currency',

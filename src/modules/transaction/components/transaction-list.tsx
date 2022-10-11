@@ -1,7 +1,7 @@
 import { TransactionListProps } from '../types'
 import { TransactionListItem } from './transaction-list-item'
 
-import styles from '../styles/transaction-list.module.scss'
+import styles from './transaction-list.module.scss'
 
 type Props = TransactionListProps
 

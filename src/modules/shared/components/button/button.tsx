@@ -1,6 +1,6 @@
-import { concat } from 'modules/shared/utils/concat'
+import { concat } from '@/modules/shared'
 import { ButtonHTMLAttributes } from 'react'
-import styles from '../../styles/button/button.module.scss'
+import styles from './button.module.scss'
 
 export const Button = (props: ButtonHTMLAttributes<{}>) => {
   const { className, ...rest } = props

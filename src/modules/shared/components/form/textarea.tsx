@@ -1,6 +1,6 @@
-import { concat } from 'modules/shared/utils/concat'
+import { concat } from '@/modules/shared'
 import { TextareaHTMLAttributes } from 'react'
-import styles from '../../styles/form/textarea.module.scss'
+import styles from './textarea.module.scss'
 
 export const TextAreaInput = (props: TextareaHTMLAttributes<{}>) => {
   const { className, ...rest } = props

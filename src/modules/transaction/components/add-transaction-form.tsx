@@ -6,11 +6,8 @@ import {
 } from '../types'
 import { validateTransaction } from '../services/validate-transaction'
 
-import styles from '../styles/add-transaction-form.module.scss'
-import { Input } from 'modules/shared/components/form/input'
-import { TextAreaInput } from 'modules/shared/components/form/textarea'
-import { Button } from 'modules/shared/components/button/button'
-import { useForm } from 'modules/shared/hooks/useForm'
+import styles from './add-transaction-form.module.scss'
+import { useForm, Button, Input, TextAreaInput } from '@/modules/shared'
 
 type Props = AddTransactionFormProps
 export function AddTransactionForm({ onAddTransaction }: Props) {
@@ -44,11 +41,11 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
     <form className={styles.form} {...handleForm} onSubmit={handleSubmit}>
       <label>
         Type
-        <Input type="text" name="type" />
+        <Input type='text' name='type' />
       </label>
       <label>
         Transaction name
-        <Input type="text" {...form.name} />
+        <Input type='text' {...form.name} />
         {errors.name && <span>{errors.name}</span>}
       </label>
       <label>
@@ -58,7 +55,7 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
       </label>
       <label>
         Amount
-        <Input type="number" name="amount" />
+        <Input type='number' name='amount' />
         {errors.credit && <span>{errors.credit}</span>}
       </label>
       <Button>Add</Button>

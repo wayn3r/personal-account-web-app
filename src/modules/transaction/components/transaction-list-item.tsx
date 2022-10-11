@@ -1,5 +1,5 @@
 import { TransactionListItemProps } from '../types'
-import styles from '../styles/transaction-list-item.module.scss'
+import styles from './transaction-list-item.module.scss'
 
 const number = new Intl.NumberFormat('en-US', {
   style: 'currency',

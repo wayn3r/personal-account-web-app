@@ -1,12 +1,10 @@
+import { AppLayout, NavigationBar } from '@/modules/layout'
 import type { NextPage } from 'next'
-import Link from 'next/link'
-import { AppLayout } from 'modules/layout/components/app-layout'
 
 const Home: NextPage = () => {
   return (
-    <AppLayout title="Home" description="This is the home page">
-      <Link href="/">Home Page</Link>
-      <Link href="/transaction">Transactions</Link>
+    <AppLayout title='Home' description='This is the home page'>
+      <NavigationBar />
     </AppLayout>
   )
 }

@@ -1,10 +1,12 @@
 import Link from 'next/link'
-import { AppLayout } from 'modules/layout/components/app-layout'
-import { Transaction } from 'modules/transaction/types'
-import { getServerTransactions } from 'modules/transaction/services/get-transactions'
-import { TransactionList } from 'modules/transaction/components/transaction-list'
-import { GeneralBalance } from 'modules/transaction/components/general-balance'
-import styles from 'styles/pages/transaction.module.scss'
+import { AppLayout } from '@/modules/layout'
+import {
+  Transaction,
+  getServerTransactions,
+  TransactionList,
+  GeneralBalance,
+} from '@/modules/transaction'
+import styles from '@/styles/pages/transaction.module.scss'
 
 type Props = {
   transactions: Transaction[]
@@ -12,10 +14,10 @@ type Props = {
 }
 function TransactionPage({ transactions, fetchingError }: Props) {
   return (
-    <AppLayout title="Transaction" description="Personal Transaction">
+    <AppLayout title='Transaction' description='Personal Transaction'>
       <h1>Transactions</h1>
       <p>This is the transaction page</p>
-      <Link href="/transaction/new">Add New</Link>
+      <Link href='/transaction/new'>Add New</Link>
       {fetchingError && (
         <p className={styles.error}>Error fetching transactions</p>
       )}

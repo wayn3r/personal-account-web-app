@@ -1,6 +1,6 @@
-import { concat } from 'modules/shared/utils/concat'
+import { concat } from '@/modules/shared'
 import { InputHTMLAttributes } from 'react'
-import styles from '../../styles/form/input.module.scss'
+import styles from './input.module.scss'
 
 export const Input = (props: InputHTMLAttributes<{}>) => {
   const { className, ...rest } = props
