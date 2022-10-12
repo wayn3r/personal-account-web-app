@@ -10,7 +10,7 @@ import styles from './app-layout.module.scss'
 const pages: NavigationBarProps['pages'] = [
   {
     icon: <span>🏠</span>,
-    title: 'Transactions',
+    title: 'Home',
     path: '/',
   },
   {
