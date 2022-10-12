@@ -1,0 +1,39 @@
+@import '/src/styles/base/variables';
+.navigation {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  ul {
+    display: grid;
+    list-style: none;
+    width: 100%;
+    justify-content: space-around;
+    grid-template-columns: repeat(var(--number-of-options), 1fr);
+    li {
+      display: flex;
+      justify-content: center;
+    }
+    a,
+    a:visited {
+      color: $black-color;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: max-content;
+      &.active,
+      &:hover,
+      &:active {
+        font-weight: 600;
+        color: currentColor;
+      }
+
+      &.active {
+        pointer-events: none;
+      }
+    }
+  }
+}
