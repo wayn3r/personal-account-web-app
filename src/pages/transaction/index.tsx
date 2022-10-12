@@ -30,20 +30,21 @@ function TransactionPage({ transactions, fetchingError }: Props) {
 }
 
 export async function getServerSideProps() {
-  let transactions: Transaction[] = []
-  let fetchingError: boolean = false
-  try {
-    transactions = await getServerTransactions()
-  } catch (error) {
-    console.log(error)
-    fetchingError = true
-  }
-  return {
-    props: {
-      transactions,
-      fetchingError,
-    },
-  }
+  const props = await getServerTransactions()
+    .then(({ data, ...pagination }) => {
+      return {
+        pagination,
+        transactions: data,
+        fetchingError: false,
+      }
+    })
+    .catch(() => ({
+      pagination: {},
+      transactions: [],
+      fetchingError: true,
+    }))
+
+  return { props }
 }
 
 export default TransactionPage

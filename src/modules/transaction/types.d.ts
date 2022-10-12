@@ -4,6 +4,10 @@ export interface AddTransactionFormValues {
   credit: number
   debit: number
 }
+
+export interface Paginated<T> {
+  data: T[]
+}
 export interface Transaction extends AddTransactionFormValues {
   id: number
   balance: number

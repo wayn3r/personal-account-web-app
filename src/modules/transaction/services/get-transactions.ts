@@ -1,4 +1,4 @@
-import { Transaction } from '../types'
+import { Paginated, Transaction } from '../types'
 import { validateTransaction } from './validate-transaction'
 
 const LOCAL_STORAGE_KEY = 'transactions'
@@ -14,8 +14,8 @@ export async function getTransactions(): Promise<Transaction[]> {
   return currentTransactions.filter(isValidTransaction)
 }
 
-export async function getServerTransactions(): Promise<Transaction[]> {
-  const response = await fetch(`${API_HOST}/transaction`)
+export async function getServerTransactions(): Promise<Paginated<Transaction>> {
+  const response = await fetch(`${API_HOST}/transactions`)
   if (!response.ok) {
     throw await response.json()
   }
