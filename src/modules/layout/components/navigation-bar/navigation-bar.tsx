@@ -11,6 +11,10 @@ export type Props = {
 export function NavigationBar({ pages }: Props) {
   const { pathname } = useRouter()
 
+  const isActivePage = (pagePath: string) => {
+    return new RegExp(`^${pagePath}`).test(pathname)
+  }
+
   const inlineStyles = { '--number-of-options': pages.length } as any
   return (
     <nav className={styles.navigation}>
@@ -18,7 +22,7 @@ export function NavigationBar({ pages }: Props) {
         {pages.map(page => (
           <li key={page.path}>
             <Link href={page.path}>
-              <a className={concat(pathname === page.path && styles.active)}>
+              <a className={concat(isActivePage(page.path) && styles.active)}>
                 <span className={styles.navigationIcon}>{page.icon}</span>
                 <span className={styles.navigationTitle}>{page.title}</span>
               </a>

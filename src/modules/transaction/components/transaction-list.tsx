@@ -1,9 +1,9 @@
-import { TransactionListProps } from '../types'
+import { Transaction } from '../domain'
 import { TransactionListItem } from './transaction-list-item'
 
 import styles from './transaction-list.module.scss'
 
-type Props = TransactionListProps
+type Props = { transactions: Transaction[] }
 
 export const TransactionList = ({ transactions }: Props) => {
   const hasNoTransactions = transactions.length === 0

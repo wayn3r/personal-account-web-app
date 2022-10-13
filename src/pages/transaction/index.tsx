@@ -1,18 +1,21 @@
 import Link from 'next/link'
 import { AppLayout } from '@/modules/layout'
 import {
-  Transaction,
   getServerTransactions,
   TransactionList,
   GeneralBalance,
 } from '@/modules/transaction'
+import { Transaction } from '@/transaction/domain'
 import styles from '@/styles/pages/transaction.module.scss'
+import { transactionMapper } from '@/transaction/infrastructure'
 
 type Props = {
   transactions: Transaction[]
   fetchingError: boolean
 }
 function TransactionPage({ transactions, fetchingError }: Props) {
+  transactions = transactionMapper.mapList(transactions)
+
   return (
     <AppLayout title='Transaction' description='Personal Transaction'>
       <h1>Transactions</h1>

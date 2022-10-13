@@ -14,7 +14,7 @@ function NewTransactionPage() {
       const transaction = await addTransaction(values)
       router.push('/transaction')
     } catch (error: any) {
-      console.log(error.errors)
+      console.error(error.errors)
     }
   }
   return (

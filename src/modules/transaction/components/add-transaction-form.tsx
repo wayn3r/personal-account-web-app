@@ -28,7 +28,7 @@ export function AddTransactionForm({ onAddTransaction }: Props) {
       credit: parseFloat(form.credit.value.toString()),
       debit: parseFloat(form.debit.value.toString()),
     }
-    console.log(values)
+    // console.log(values)
     // const errors = validateTransaction(values)
     // if (Object.keys(errors).length > 0) {
     //   setErrors(errors)
