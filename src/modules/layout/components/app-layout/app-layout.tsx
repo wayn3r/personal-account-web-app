@@ -6,15 +6,11 @@ import {
   Props as NavigationBarProps,
 } from '../navigation-bar/navigation-bar'
 import styles from './app-layout.module.scss'
+import { CoinsIcon } from '@/assets/icons'
 
 const pages: NavigationBarProps['pages'] = [
   {
-    icon: <span>🏠</span>,
-    title: 'Home',
-    path: '/',
-  },
-  {
-    icon: <span>💲</span>,
+    icon: <CoinsIcon />,
     title: 'Transactions',
     path: '/transaction',
   },

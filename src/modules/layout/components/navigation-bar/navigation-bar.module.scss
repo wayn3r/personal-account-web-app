@@ -7,6 +7,9 @@
   right: 0;
 
   ul {
+    background-color: $black-color;
+    color: $white-color;
+    padding: 2rem 0;
     display: grid;
     list-style: none;
     width: 100%;
@@ -18,7 +21,7 @@
     }
     a,
     a:visited {
-      color: $black-color;
+      color: currentColor;
       text-decoration: none;
       display: flex;
       flex-direction: column;
