@@ -7,8 +7,10 @@ type Props = { transactions: Transaction[] }
 
 export const TransactionList = ({ transactions }: Props) => {
   const hasNoTransactions = transactions.length === 0
-  return (
-    <ul className={styles.transactions}>
+  const monthTransactions = getMonthTransactions(transactions)
+  return Object.entries(monthTransactions).map(([month, transactions]) => (
+    <ul className={styles.transactions} key={month}>
+      <h4 className={styles.title}>{month.toUpperCase()}</h4>
       {transactions.map(transaction => (
         <TransactionListItem key={transaction.id} transaction={transaction} />
       ))}
@@ -18,5 +20,21 @@ export const TransactionList = ({ transactions }: Props) => {
         </li>
       )}
     </ul>
-  )
+  ))
+}
+
+function getMonthTransactions(transactions: Transaction[]) {
+  const monthTransactions: Record<string, Transaction[]> = {}
+
+  const dateFormat = new Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    month: 'long',
+  })
+  transactions.forEach(transaction => {
+    const month = dateFormat.format(transaction.date)
+    monthTransactions[month] ??= []
+    monthTransactions[month].push(transaction)
+  })
+
+  return monthTransactions
 }
