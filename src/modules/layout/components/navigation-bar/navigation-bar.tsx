@@ -21,11 +21,12 @@ export function NavigationBar({ pages }: Props) {
       <ul style={inlineStyles}>
         {pages.map(page => (
           <li key={page.path}>
-            <Link href={page.path}>
-              <a className={concat(isActivePage(page.path) && styles.active)}>
-                <span className={styles.navigationIcon}>{page.icon}</span>
-                <span className={styles.navigationTitle}>{page.title}</span>
-              </a>
+            <Link
+              href={page.path}
+              className={concat(isActivePage(page.path) && styles.active)}
+            >
+              <span className={styles.navigationIcon}>{page.icon}</span>
+              <span className={styles.navigationTitle}>{page.title}</span>
             </Link>
           </li>
         ))}

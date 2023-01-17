@@ -18,7 +18,11 @@ function NewTransactionPage() {
     }
   }
   return (
-    <AppLayout title='New Transaction' description='Create a new transaction'>
+    <AppLayout
+      title='New Transaction'
+      description='Create a new transaction'
+      navbar
+    >
       <h1>Add Transaction</h1>
       <Link href='/transaction'>&larr; Go back</Link>
       <AddTransactionForm onAddTransaction={handleAddNewTransaction} />

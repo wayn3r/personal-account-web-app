@@ -1,8 +1,16 @@
 export interface AddTransactionFormValues {
+  amount: number
   name: string
+  currency: string
+  type: string
+  date: Date
+  account: string
+  tags: string[]
   description: string
-  credit: number
-  debit: number
+}
+
+export type Errors<T> = {
+  [P in keyof T]?: string
 }
 
 export interface Paginated<T> {
@@ -26,10 +34,4 @@ export interface TransactionListProps {
 
 export interface TransactionListItemProps {
   transaction: Transaction
-}
-export interface TransactionErrors {
-  name: string
-  description: string
-  credit: string
-  debit: string
 }

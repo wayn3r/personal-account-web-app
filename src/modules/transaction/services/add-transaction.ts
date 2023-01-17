@@ -15,7 +15,10 @@ export async function addTransaction(
       'Content-Type': 'application/json',
     },
   }
-  const response = await fetch(`${API_HOST}/transaction/add`, requestOptions)
+  const response = await fetch(
+    `${API_HOST}/transactions/register`,
+    requestOptions
+  )
   if (!response.ok) {
     const errors = await response.json()
     throw new ServerValidationError(errors.message)
