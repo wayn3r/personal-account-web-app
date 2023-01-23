@@ -5,6 +5,7 @@ const API_HOST = process.env.NEXT_PUBLIC_API_URL
 export const userLoggedInEventHandler: EventCallbacks['signIn'] =
   async message => {
     const id_token = message.account?.id_token
+    console.log('User logged in')
     fetch(API_HOST + '/auth/register', {
       method: 'POST',
       body: JSON.stringify({ token: id_token }),

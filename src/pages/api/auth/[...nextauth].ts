@@ -3,14 +3,10 @@ import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
 export default NextAuth({
+  secret: String(process.env.NEXTAUTH_SECRET),
+  // useSecureCookies: true,
   events: { signIn: userLoggedInEventHandler },
   pages: { signIn: '/auth/signin' },
-  callbacks: {
-    signIn: async params => {
-      console.log(params)
-      return true
-    },
-  },
   providers: [
     GoogleProvider({
       clientId: String(process.env.GOOGLE_CLIENT_ID),
