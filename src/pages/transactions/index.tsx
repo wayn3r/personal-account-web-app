@@ -20,7 +20,7 @@ function TransactionPage({ transactions, fetchingError }: Props) {
     <AppLayout title='Transaction' description='Personal Transaction' navbar>
       <h1>Transactions</h1>
       <p>This is the transaction page</p>
-      <Link href='/transaction/new'>Add New</Link>
+      <Link href='/transactions/new'>Add New</Link>
       {fetchingError && (
         <p className={styles.error}>Error fetching transactions</p>
       )}

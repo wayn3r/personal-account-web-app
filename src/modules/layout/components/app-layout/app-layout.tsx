@@ -14,7 +14,7 @@ const pages: NavigationBarProps['pages'] = [
   {
     icon: <CoinsIcon />,
     title: 'Transactions',
-    path: '/transaction',
+    path: '/transactions',
   },
 ]
 

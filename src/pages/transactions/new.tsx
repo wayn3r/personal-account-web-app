@@ -12,7 +12,7 @@ function NewTransactionPage() {
   const handleAddNewTransaction = async (values: AddTransactionFormValues) => {
     try {
       const transaction = await addTransaction(values)
-      router.push('/transaction')
+      router.push('/transactions')
     } catch (error: any) {
       console.error(error.errors)
     }
@@ -24,7 +24,7 @@ function NewTransactionPage() {
       navbar
     >
       <h1>Add Transaction</h1>
-      <Link href='/transaction'>&larr; Go back</Link>
+      <Link href='/transactions'>&larr; Go back</Link>
       <AddTransactionForm onAddTransaction={handleAddNewTransaction} />
     </AppLayout>
   )
