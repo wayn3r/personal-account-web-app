@@ -17,7 +17,12 @@ function TransactionPage({ transactions, fetchingError }: Props) {
   transactions = transactionMapper.mapList(transactions)
 
   return (
-    <AppLayout title='Transaction' description='Personal Transaction' navbar>
+    <AppLayout
+      title='Transaction'
+      description='Personal Transaction'
+      navbar
+      topbar
+    >
       <h1>Transactions</h1>
       <p>This is the transaction page</p>
       <Link href='/transactions/new'>Add New</Link>

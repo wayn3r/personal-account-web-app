@@ -4,4 +4,5 @@ export interface LayoutProps {
   userBadge?: boolean
   metas?: { [name: string]: string }
   navbar?: boolean
+  topbar?: boolean
 }

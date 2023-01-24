@@ -6,11 +6,16 @@ import {
   Props as NavigationBarProps,
 } from '../navigation-bar/navigation-bar'
 import styles from './app-layout.module.scss'
-import { CoinsIcon } from '@/assets/icons'
-import { signOut, useSession } from 'next-auth/react'
-import Image from 'next/image'
+import { CoinsIcon, HomeIcon } from '@/assets/icons'
+import { TopBar } from '../top-bar'
 
 const pages: NavigationBarProps['pages'] = [
+  {
+    icon: <HomeIcon />,
+    title: 'Home',
+    path: '/',
+    fullPath: true,
+  },
   {
     icon: <CoinsIcon />,
     title: 'Transactions',
@@ -23,6 +28,7 @@ export function AppLayout({
   children,
   title,
   description,
+  topbar = false,
   navbar = false,
   metas = {},
 }: Props) {
@@ -41,31 +47,10 @@ export function AppLayout({
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.content}>
-        <UserBagde />
+        {topbar && <TopBar />}
         {children}
         {navbar && <NavigationBar pages={pages} />}
       </main>
-    </div>
-  )
-}
-
-const UserBagde = () => {
-  const { data: session } = useSession()
-
-  if (!session) return null
-
-  const { user } = session
-
-  return (
-    <div>
-      <h2>{user?.name}</h2>
-      {user?.image && (
-        <Image src={user.image} alt='User Image' width={100} height={100} />
-      )}
-      Signed in as {user?.email} <br />
-      <button onClick={() => signOut({ callbackUrl: '/auth/signin' })}>
-        Sign out
-      </button>
     </div>
   )
 }

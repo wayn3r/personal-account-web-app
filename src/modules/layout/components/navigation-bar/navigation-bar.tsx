@@ -5,14 +5,20 @@ import { useRouter } from 'next/router'
 const styles = camelCaseStyles(scss)
 
 export type Props = {
-  pages: { icon: JSX.Element; title: string; path: string }[]
+  pages: {
+    icon: JSX.Element
+    title: string
+    path: string
+    fullPath?: boolean
+  }[]
 }
 
 export function NavigationBar({ pages }: Props) {
   const { pathname } = useRouter()
 
-  const isActivePage = (pagePath: string) => {
-    return new RegExp(`^${pagePath}`).test(pathname)
+  const isActivePage = (page: Props['pages'][0]) => {
+    if (page.fullPath) return page.path === pathname
+    return new RegExp(`^${page.path}`).test(pathname)
   }
 
   const inlineStyles = { '--number-of-options': pages.length } as any
@@ -23,7 +29,7 @@ export function NavigationBar({ pages }: Props) {
           <li key={page.path}>
             <Link
               href={page.path}
-              className={concat(isActivePage(page.path) && styles.active)}
+              className={concat(isActivePage(page) && styles.active)}
             >
               <span className={styles.navigationIcon}>{page.icon}</span>
               <span className={styles.navigationTitle}>{page.title}</span>

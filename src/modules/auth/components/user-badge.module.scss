@@ -1,0 +1,41 @@
+@import '/src/styles/base/variables';
+
+.wrapper {
+  display: flex;
+  position: relative;
+  &:active .hidden,
+  &:focus-within .hidden {
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+  }
+}
+
+.picture {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hidden {
+  transition: opacity 300ms ease;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  top: 100%;
+  right: 0;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: grid;
+  gap: 2rem;
+}
+
+.email {
+  font-weight: 500;
+  color: darken($color: $light-gray-color, $amount: 0.3);
+}
+
+.button {
+  padding: 0.5rem;
+}

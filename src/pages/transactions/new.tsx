@@ -22,6 +22,7 @@ function NewTransactionPage() {
       title='New Transaction'
       description='Create a new transaction'
       navbar
+      topbar
     >
       <h1>Add Transaction</h1>
       <Link href='/transactions'>&larr; Go back</Link>

@@ -7,6 +7,7 @@ const Home: NextPage = () => {
       title='Home'
       description='This is the home page'
       navbar
+      topbar
     ></AppLayout>
   )
 }
