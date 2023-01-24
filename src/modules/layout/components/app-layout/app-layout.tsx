@@ -8,6 +8,7 @@ import {
 import styles from './app-layout.module.scss'
 import { CoinsIcon, HomeIcon } from '@/assets/icons'
 import { TopBar } from '../top-bar'
+import { concat } from '@/modules/shared'
 
 const pages: NavigationBarProps['pages'] = [
   {
@@ -25,6 +26,7 @@ const pages: NavigationBarProps['pages'] = [
 
 type Props = PropsWithChildren<LayoutProps>
 export function AppLayout({
+  className,
   children,
   title,
   description,
@@ -46,7 +48,7 @@ export function AppLayout({
         {metaTags}
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className={styles.content}>
+      <main className={concat(styles.content, className)}>
         {topbar && <TopBar />}
         {children}
         {navbar && <NavigationBar pages={pages} />}

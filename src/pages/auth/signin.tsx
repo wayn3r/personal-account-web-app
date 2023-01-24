@@ -1,21 +1,32 @@
 import { AppLayout } from '@/modules/layout'
+import { Button } from '@/modules/shared'
 import { signIn } from 'next-auth/react'
+import styles from '@/styles/pages/signin.module.scss'
+import { GoogleIcon } from '@/assets/icons'
 
 // const googleMetaTag = {
 //   'google-signin-client_id': String(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID),
 // }
 export function LoginPage() {
   return (
-    <AppLayout title='Login' description='Login to Personal Account Web App'>
+    <AppLayout
+      title='Login'
+      description='Login to Personal Account Web App'
+      className={styles.centered}
+    >
       <div>
-        <h1>Personal Account Web App</h1>
+        <h2>Personal Account</h2>
       </div>
-      Not signed in <br />
-      <button
-        onClick={() => signIn('google', { redirect: true, callbackUrl: '/' })}
-      >
-        Sign in
-      </button>
+      <section className={styles.options}>
+        <h4 className={styles.label}>Sign in options</h4>
+        <Button
+          className={styles.button}
+          onClick={() => signIn('google', { redirect: true, callbackUrl: '/' })}
+        >
+          <GoogleIcon />
+          Sign in with Google
+        </Button>
+      </section>
     </AppLayout>
   )
 }
